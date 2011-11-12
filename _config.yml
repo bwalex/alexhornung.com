@@ -1,0 +1,26 @@
+url: "http://alex-pc"
+
+pygments: true
+permalink: pretty
+paginate: 10
+
+
+disqus:
+  developer:    1
+  shortname:    "testingcorner"
+
+flickr:
+  profile:      "66733349@N00"
+
+twitter:
+  profile:      "bwalex"
+
+linkedin:
+  profile:      "alexhornung"
+
+menu:
+  - text:       "Home"
+    url:        "/"
+
+  - text:       "About"
+    url:        "/about"

@@ -1,0 +1,108 @@
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+
+    <link type="text/css" href="/css/fluid_grid.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/style.css" rel="stylesheet"/>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}Alex Hornung</title>
+  </head>
+
+  <body>
+    <div class="container_16">
+      <div  id="logo" class="grid_16">
+        <h1 class="logo">Alex Hornung</h1>
+      </div>
+    </div>
+    <div id="header" class="container_16">
+      <div id="navbar" class="container_16 clearfix">
+        <div class="grid_12">
+	  <ul id="navigation-menu" class="menu">
+	    {% for item in site.menu %}
+            <li class="">
+	    <a href="{{ item.url }}">{{ item.text }}</a>
+	    </li>
+	    {% endfor %}
+          </ul>
+        </div>
+
+        <div class="grid_4" id="social-nav">
+          <div id="rss-feed">
+            <a target="_blank" href="<%= $config.rss.rssFeedUrl %>"></a>
+          </div>
+
+          <div id="flickr-profile">
+            <a target="_blank" href="http://www.flickr.com/photos/{{ site.flickr.profile }}"></a>
+          </div>
+
+          <div id="twitter-profile">
+            <a target="_blank" href="http://www.twitter.com/{{ site.twitter.profile }}"></a>
+          </div>
+
+          <div id="linkedin-profile">
+            <a target="_blank" href="http://www.linkedin.com/in/{{ site.linkedin.profile }}"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="spacer container_16 clearfix"></div>
+
+
+    <div id="content" class="clearfix container_16">
+      <div class="grid_12">
+        <div id="main">
+          <h2>{{ page.title }}</h2>
+          {{ content }}
+        </div>
+	{% if page.comments %}
+	<div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_developer = {{ site.disqus.developer }}; // developer mode is on
+          var disqus_shortname = '{{ site.disqus.shortname }}';
+
+          {% if post.id %}
+          var disqus_identifier = '{{ post.id }}';
+          {% endif %}
+
+          var disqus_url = '{{ page.url }}';
+          (function() {
+           var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+           dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+           })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+        <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+        {% endif %}
+       </div>
+       <div class="grid_4 clearfix">
+         <div id="sidebar" class="clearfix">
+           {% for sidebar in page.sidebars %}
+           <h3>{{ sidebar.title }}</h3>
+           <div>
+             {{ sidebar.content }}
+           </div>
+           {% for item in sidebar.items %}
+           <a href="{{ item.url }}" class="indented">{{ item.text }}</a>
+           {% endfor %}
+           {% endfor %}
+         </div>
+       </div>
+     </div>
+
+     <div class="spacer container_16 clearfix"></div>
+     <div id="footer" class="container_16 clearfix">
+       <div class="grid_16">
+         Copyright (C) 2011, Alex Hornung
+       </div>
+     </div>
+   </body>
+
+ </html>

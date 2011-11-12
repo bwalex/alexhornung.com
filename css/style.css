@@ -1,0 +1,547 @@
+body {
+    //background: url("../icons/background-stripe.png") repeat scroll 0 0 #E9EBE8;
+    //font-family: Verdana,Helvetica,Arial,sans-serif;
+    font-family: Arial,Helvetica,Clean,sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+div#logo {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    //box-shadow: 0 5px 15px #AAAAAA;
+    background: none repeat scroll 0 0 #000000;
+    margin: 15px 0 0 -20px;
+    padding: 0px 20px;
+    width: 100%;
+    text-align: left;
+
+}
+
+div#logo h1.logo {
+	color: #34BEED;
+	padding: 0px;
+	margin: 10px 0 0 0;
+}
+
+div#content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    //box-shadow: 0 5px 15px #AAAAAA;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 1px;
+    padding: 0px 20px;
+    padding-bottom: 20px;
+    position: relative;
+    text-align: left;
+
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+#footer {
+    background: none repeat scroll 0 0 white;
+    border-top: 1px dotted #999999;
+    margin-left: auto;
+    margin-right: auto;
+
+    min-height: 1px;
+    padding: 10px 20px 20px;
+    position: relative;
+    text-align: right;
+    font-size: 75%;
+}
+
+#navbar {
+    box-shadow: 0 5px 15px #AAAAAA;
+    background: none repeat scroll 0 0 #000000;
+    //border-top-left-radius: 6px;
+    //border-top-right-radius: 6px;
+    //border-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 50px;
+    margin: 0 0 0 -20px;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 100%;
+}
+
+#navbar div {
+    background-color: #000000;
+    //border-right: 1px solid #666666;
+    margin: 0;
+    //padding: 5px 0;
+    text-align: center;
+}
+
+#navbar div a {
+    color: #34BEED;
+    display: block;
+    font-size: 90%;
+    font-weight: bold;
+    height: 26px;
+    padding: 15px 15px 6px;
+    text-decoration: none;
+}
+
+#navbar ul li.selected a, #navbar ul li a:hover {
+    color: white;
+}
+
+#navbar ul {
+    float: left;
+    margin: 0;
+    width: 100%;
+    padding-left: 0px;
+}
+
+#navbar ul li {
+    float: left;
+    list-style: none outside none;
+    margin: 5px 0;
+}
+
+#social-nav {
+	padding: 12px;
+	float: right;
+}
+
+#twitter-profile {
+    background: url("../icons/twitter.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+    float: right;
+    font-weight: bold;
+    padding-top: 12px;
+    text-align: right;
+    z-index: 4;
+}
+
+#flickr-profile {
+    background: url("../icons/flickr.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+    float: right;
+    font-weight: bold;
+    padding-top: 12px;
+    text-align: right;
+    z-index: 4;
+}
+
+
+div.spacer {
+    margin-top: 20px;
+}
+
+#linkedin-profile {
+    background: url("../icons/linkedin.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+    float: right;
+    font-weight: bold;
+    padding-top: 12px;
+    text-align: right;
+    z-index: 4;
+}
+
+#rss-feed {
+    background: url("../icons/rss.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+    float: right;
+    font-weight: bold;
+    padding-top: 12px;
+    text-align: right;
+    z-index: 4;
+}
+
+
+div#sidebar {
+	padding-top: 10px;
+	width: 100%;
+	//border-left: 1px solid;
+	//height: 100%;
+}
+
+#sidebar a {
+    border-bottom: 1px dotted #CCCCCC;
+    display: block;
+    padding: 4px 6px;
+    text-decoration: none;
+}
+
+#sidebar h3 {
+    border-bottom: 1px solid #666666;
+    margin-bottom: 5px;
+}
+
+#sidebar a.indented {
+    color: #555555;
+    font-size: 11px;
+    padding-left: 15px;
+}
+
+#sidebar a:hover {
+    color: #CC3300;
+}
+
+
+div#main {
+	//border-right: 1px solid #DDDDDD;
+	padding-right: 30px;
+	padding-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0.5em 0 0.5em 0;
+}
+th, td {
+    border: 1pt solid #ADB9CC;
+    padding: 0.25em 0.5em;
+}
+th, td.theader {
+    background-color: #F8F8F8;
+    font-weight: bold;
+    padding: 5pt;
+    vertical-align: middle;
+}
+
+a:link, a:visited {
+    -moz-transition: all 0.3s ease 0s;
+}
+
+a:hover {
+    color: #CC3300;
+}
+
+a {
+    color: #3B73B9;
+    text-decoration: none;
+}
+
+h2 {
+    border-bottom: 1px solid #DDDDDD;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+#content .box.code {
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+    background: url("http://flowplayer.org/img/box/code_lines.png") repeat-y scroll 0 -3px #F9F9FA;
+    padding: 0px 14px 0px 35px;
+}
+
+pre, code, .code {
+    font-family: 'andale mono','bitstream vera sans mono','lucida console','courier new',monospace;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+
+div.row {
+    clear: left;
+    padding-top: 5px;
+    width: 100%;
+}
+div.row span.label {
+    float: left;
+    text-align: right;
+    width: 40%;
+}
+div.row span.formw {
+    float: right;
+    text-align: left;
+    width: 60%;
+}
+div.row span.labelfull {
+    float: left;
+    text-align: right;
+    width: 20%;
+}
+div.row span.labelfullleft {
+    float: left;
+    text-align: left;
+    width: 100px;
+}
+div.row span.formfull {
+    float: right;
+    text-align: left;
+    width: 800px;
+}
+div.row span.left {
+    float: left;
+    width: 50%;
+}
+div.row span.right {
+    float: right;
+    width: 50%;
+}
+div.row div.leftfixed {
+    float: left;
+    text-align: left;
+    width: 300px;
+}
+div.row div.rightfixed {
+    float: right;
+    text-align: left;
+    width: 300px;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+
+input {
+    padding: 3px 8px;
+    background-color: white;
+    margin: 2px 0;
+    border: 1px solid #8496BA;
+}
+
+.editsection {
+    float: right;
+    font-weight: normal;
+    margin-left: 5px;
+    border-bottom: none;
+}
+
+a.boring {
+    /*border: medium none;*/
+    color: #000000;
+    outline: medium none;
+    text-decoration: none;
+    border-bottom: medium none;
+}
+
+img.boring {
+    border: medium none;
+    outline: medium none;
+}
+
+/* LinkedIn Profile CSS */
+
+.profile-header {
+    background-color: #DDF0F8;
+    margin: 0 0 15px;
+    min-height: 90px;
+    padding: 15px;
+}
+
+.profile-header h1 {
+    border: medium none;
+    font-size: 180%;
+    margin: 0 0 4px;
+    padding: 0;
+}
+
+.profile-header .image {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.profile-header .image img {
+    border: 5px solid #FFFFFF;
+    padding: 0;
+}
+.profile-header p {
+    font-size: 130%;
+}
+.profile-header p.title {
+    margin: 0 0 6px;
+}
+.profile-header .demographic-info {
+    color: #666666;
+    font-size: 130%;
+    margin: 4px 0 6px;
+    padding: 0;
+}
+.profile-header .demographic-info dt {
+    display: none;
+}
+.profile-header .demographic-info dd {
+    display: inline;
+    margin: 0;
+    padding: 0 4px 0 0;
+}
+.profile-header .demographic-info dd.industry {
+    border-left: 1px solid #666666;
+    padding-left: 6px;
+}
+
+.at {
+    font-weight: normal !important;
+}
+div.section {
+}
+#overview {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #C8E4F1;
+    border-style: solid;
+    border-width: 0 1px 2px 0;
+    clear: both;
+    margin: 0 0 0 10px;
+    overflow: hidden;
+    padding: 0 10px 10px;
+}
+#overview dt {
+    color: #666666;
+    font-size: 130%;
+    height: 1em;
+    margin: 0;
+    padding-top: 10px;
+    width: 13em;
+}
+#overview dd {
+    border-bottom: 1px dotted #666666;
+    margin: -1.3em 0 0;
+    overflow: hidden;
+    padding: 0 0 10px 13em;
+}
+#overview dd ul, #overview p {
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+#overview dd:last-child {
+    border: medium none;
+    margin-bottom: -6px;
+}
+#overview dd.last {
+    border: medium none;
+    margin-bottom: -6px;
+}
+#overview ul.current {
+    font-weight: bold;
+}
+#overview p, #overview li {
+    font-size: 110%;
+}
+#profile-summary p {
+    margin: 0 0 0 15px;
+}
+
+#profile-education h3, #profile-education h4, #profile-education p.period {
+    margin: 0;
+    padding: 0;
+}
+#profile-education h4 {
+    font-size: 100%;
+    font-weight: normal;
+}
+#profile-education p.period {
+    color: #666666;
+}
+#profile-experience h3, #profile-experience h4, #profile-experience p {
+    margin: 0;
+    padding: 0;
+}
+#profile-experience h4 {
+    font-size: 100%;
+    font-weight: normal;
+}
+#profile-experience p.orgstats {
+    color: #999999;
+}
+#profile-experience p.period {
+    color: #666666;
+}
+#profile-experience p.desc {
+    margin-top: 5px;
+}
+.position {
+    border-bottom: 1px dotted #666666;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    padding-bottom: 5px;
+}
+.position:last-child {
+    border: medium none;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+ul.competencies h3 {
+    display: inline;
+    font-weight: normal;
+    font-size: 100%;
+}
+ul.competencies .proficiency {
+    color: #666666;
+}
+
+
+/* End LinkedIn Profile CSS */
+
+
+
+
+
+
+p.post-info {
+    font-size: 90%;
+    margin: 0 0 0 5px;
+    overflow: hidden;
+    padding: 8px 5px;
+}
+
+
+p.post-info {
+  padding-left: 0px;
+  margin-left: 0px;
+  
+}
+
+div.post-body {
+    display: block;
+    padding: 10px 10px 10px 5px;
+}
+
+
+
+#main h2 {
+    margin-bottom: 0px;
+}
+
+
+span.post-date {
+    background: none repeat scroll 0 0 #00CCFF;
+    color: white;
+    float: left;
+    padding: 3px 7px;
+}
+
+span.post-categories {
+    background: none repeat scroll 0 0 #99CC00;
+    color: white;
+    float: left;
+    margin-left: 2px;
+    padding: 3px 7px 3px 3px;
+}
