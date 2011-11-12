@@ -1,0 +1,39 @@
+--- 
+layout: post
+title: Serialization and Synchronization (1)
+published: true
+meta: 
+  dsq_thread_id: "226855665"
+  _jd_post_meta_fixed: "true"
+  _edit_lock: "1283889276"
+  _edit_last: "1"
+  _wp_jd_wp: ""
+  _sexybookmarks_permaHash: a28c5ded8c47e165ce1a1cab67d8efe4
+  _wp_jd_yourls: ""
+  _wp_old_slug: ""
+  _ghpseo_secondary_title: Serialization and Synchronization - Introduction and Critical Sections
+  _wp_jd_clig: ""
+  _wp_jd_bitly: http://bit.ly/d3LQZc
+  _jd_twitter: ""
+  _jd_tweet_this: ""
+  _jd_wp_twitter: ""
+  _wp_jd_target: http://www.alexhornung.com/2010/09/07/serialization-and-synchronization-1/
+  _sexybookmarks_shortUrl: http://bit.ly/d3LQZc
+  _ghpseo_keywords: critical sections, locking, big kernel lock, big giant lock, DragonFly BSD, FreeBSD, BSD, kernel, locking, synchronization, serialization, crit_enter, MP-safe, mpsafe, multiprocessor, atomic operations, spinlocks
+  _wp_jd_url: ""
+tags: 
+- Software
+type: post
+status: publish
+---
+<p style="text-align: justify; ">Since multiprocessor systems became ubiquitous many years ago, software developers have found many solutions to take advantage of them without compromising stability, functionality, etc. The problem that arises with true multiprocessing is that several threads can execute at the same time, possibly accessing the same data structures at the same time or otherwise interact in an unwanted manner. Locking will hide intermediate states that are not supposed to exist and allow safe operation. Since I mostly work on kernel development, the focus here will be on solutions used in operating systems development.</p>
+<p><!--more--></p>
+<p style="text-align: justify; ">In the early days of multiprocessor systems, operating systems were quickly made MPsafe (multiprocessor safe) by wrapping most if not all the code into one big mutex lock (on FreeBSD and DragonFly BSD: BGL = big giant lock; on Linux: BKL = big kernel lock). While this allowed safe operation on these systems, it didn&#39;t offer any performance improvements, actually it ended up decreasing performance since it would still only run one thread at each time but would also have the synchronization overhead. Since a mutex can only be held (exclusively) by one executing thread, while this thread was running, no other thread could. Over time, operating systems have been breaking down this giant lock into more fine-grained locking mechanisms, often per driver and/or per subsystem locks, but this process is still happening as making systems mpsafe is not an easy task. Many problems tend to crop up and some of them, in particular some race conditions are really hard to track down when they just slowly corrupt memory here and there and don&#39;t cause any instant panic.</p>
+<p style="text-align: justify; ">Now let&#39;s have a look at some of the possibilities to serialize and synchronize access to resources. In this post I&#39;ll introduce critical sections. Later posts will handle other possibilities such as spinlocks, adaptive mutexes, serializing tokens, message passing, conditional variables, per-cpu structures, etc.</p>
+<h3 style="text-align: justify; ">Critical Sections</h3>
+<p style="text-align: justify; ">Critical sections are strictly per-CPU and will actually disallow preemption of a certain block of code. This will make any operation appear atomic. The syntax is usually along the lines of:</p>
+<pre style="text-align: justify; ">crit_enter();
+....
+crit_exit();</pre>
+<p style="text-align: justify; ">The actual implementation behind this is usually along the lines of either bumping the priority of the executing thread on crit_enter() above all normal priority levels or handle a count of critical sections being held in the thread information and let the scheduler check if there are critical sections held before trying to preempt any thread. They also tend to disable interrupts, so they are only intended to lock rather short sections of code.</p>
+<p style="text-align: justify; ">The limitation of critical sections should be clear: They are strictly per-CPU. They won&#39;t protect data structures from concurrent access from other CPUs or, more generally other execution units. They are only intended to avoid preemption by, for example, interrupt handlers, or if kernel threads preempt each other by other kernel threads.&nbsp;</p>
