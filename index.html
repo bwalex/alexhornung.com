@@ -1,0 +1,53 @@
+---
+layout: default
+---
+<section id="posts">
+  <ul>
+    {% for post in paginator.posts %}
+    <li>
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      {% assign excerpt_only = true %}
+      {% include post.html %}
+      {% assign excerpt_only = false %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  {% if paginator.total_pages > 1 %}
+  <nav id="pagination">
+    <ol>
+      {% if paginator.previous_page > 1 %}
+        {% capture page_url %}page{{ paginator.previous_page }}{% endcapture%}
+      {% endif %}
+      {% if paginator.previous_page %}
+      <li>
+        <a href="/{{ page_url }}" title="Go to previous page">
+          &laquo; Previous
+        </a>
+      </li>
+      {% endif %}
+      {% for page_num in (1..paginator.total_pages) %}
+      <li>
+        {% if page_num > 1 %}
+	  {% capture page_url %}page{{ page_num }}{% endcapture%}
+        {% else %}
+          {% assign page_url = ’/’ %}
+	{% endif %}
+        {% if page_num == paginator.page %}
+          {{ page_num }}
+        {% else %}
+          <a href="/{{ page_url }}">{{ page_num }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+      {% if paginator.next_page %}
+      <li>
+        <a href="/page{{ paginator.next_page }}" title="Go to next page">
+          Next &raquo;
+        </a>
+      </li>
+      {% endif %}
+    </ol>
+  </nav>
+  {% endif %}
+</section>

@@ -2,7 +2,7 @@ url: "http://alex-pc"
 
 pygments: true
 permalink: pretty
-paginate: 10
+paginate: 2
 
 tag_page_layout: tag_page
 tag_page_dir: tag
@@ -11,8 +11,11 @@ disqus:
   developer:    1
   shortname:    "testingcorner"
 
-flickr:
-  profile:      "66733349@N00"
+#flickr:
+#  profile:      "66733349@N00"
+
+gplus:
+  profile:      "106862819123696412856"
 
 twitter:
   profile:      "bwalex"

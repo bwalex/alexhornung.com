@@ -35,9 +35,17 @@
             <a target="_blank" href="<%= $config.rss.rssFeedUrl %>"></a>
           </div>
 
+	  {% if site.flickr %}
           <div id="flickr-profile">
             <a target="_blank" href="http://www.flickr.com/photos/{{ site.flickr.profile }}"></a>
-          </div>
+	  </div>
+	  {% endif %}
+
+	  {% if site.gplus %}
+	  <div id="gplus-profile">
+	    <a target="_blank" href="https://plus.google.com/{{ site.gplus.profile }}"></a>
+	  </div>
+	  {% endif %}
 
           <div id="twitter-profile">
             <a target="_blank" href="http://www.twitter.com/{{ site.twitter.profile }}"></a>
@@ -84,7 +92,16 @@
        </div>
        <div class="grid_4 clearfix">
          <div id="sidebar" class="clearfix">
-           {% for sidebar in page.sidebars %}
+	   {% unless page.sidebars %}
+	   <h3>About</h3>
+	   <div>
+	   </div>
+	   <h3>Tags</h3>
+	   <div id="tag-cloud">
+	     {{ site | tag_cloud }}
+	   </div>
+	   {% endunless %}
+	   {% for sidebar in page.sidebars %}
            <h3>{{ sidebar.title }}</h3>
            <div>
              {{ sidebar.content }}

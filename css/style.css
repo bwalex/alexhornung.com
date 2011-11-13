@@ -1,13 +1,43 @@
 body {
     //background: url("../icons/background-stripe.png") repeat scroll 0 0 #E9EBE8;
     //font-family: Verdana,Helvetica,Arial,sans-serif;
-    font-family: Arial,Helvetica,Clean,sans-serif;
-    font-size: 0.9em;
-    margin: 0;
-    padding: 0;
+    font-family: Helvetica,Verdana,Arial,Clean,sans-serif;
+    font-size: 100%;
+    //margin: 0;
+    //padding: 0;
     text-align: center;
+    line-height: 24px;
 }
 
+hr {
+    background: none repeat scroll 0 0 #DDDDDD;
+    border: medium none;
+    clear: both;
+    color: #DDDDDD;
+    float: none;
+    height: 1px;
+    margin: 0 0 0px;
+    width: 100%;
+}
+
+div#header {
+    border-bottom: 1px dotted #999999;
+}
+
+h1.logo {
+    font: bold 3em helvetica,arial,verdana,sans-serif;
+    color: #2E2633;
+    margin: 0px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    letter-spacing: -1px;
+    text-align: center;
+    font-size: 3em;
+    line-height: 1;
+}
+
+
+/*
 div#logo {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -18,13 +48,13 @@ div#logo {
     width: 100%;
     text-align: left;
 
-}
+}*/
 
-div#logo h1.logo {
+/*div#logo h1.logo {
 	color: #34BEED;
 	padding: 0px;
 	margin: 10px 0 0 0;
-}
+}*/
 
 div#content {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -54,9 +84,10 @@ div#content {
     font-size: 75%;
 }
 
+
 #navbar {
-    box-shadow: 0 5px 15px #AAAAAA;
-    background: none repeat scroll 0 0 #000000;
+    //box-shadow: 0 5px 15px #AAAAAA;
+    //background: none repeat scroll 0 0 #000000;
     //border-top-left-radius: 6px;
     //border-top-right-radius: 6px;
     //border-radius: 6px;
@@ -70,7 +101,7 @@ div#content {
 }
 
 #navbar div {
-    background-color: #000000;
+    //background-color: #000000;
     //border-right: 1px solid #666666;
     margin: 0;
     //padding: 5px 0;
@@ -78,7 +109,7 @@ div#content {
 }
 
 #navbar div a {
-    color: #34BEED;
+    color: black;
     display: block;
     font-size: 90%;
     font-weight: bold;
@@ -88,7 +119,7 @@ div#content {
 }
 
 #navbar ul li.selected a, #navbar ul li a:hover {
-    color: white;
+    color: #99173C;
 }
 
 #navbar ul {
@@ -101,7 +132,33 @@ div#content {
 #navbar ul li {
     float: left;
     list-style: none outside none;
-    margin: 5px 0;
+    margin: 0 0;
+}
+
+#posts ul li {
+    list-style: none outside none;
+}
+
+#pagination {
+    font-size: 80%;
+}
+
+#pagination ol {
+    float: left;
+    margin: 0;
+    padding-left: 0px;
+}
+
+#pagination ol li + li {
+    background: url(/icons/separator.png) no-repeat top left;
+}
+
+#pagination ol li {
+    padding-left: 15px;
+    padding-right: 5px;
+    float: left;
+    list-style: none outside none;
+    margin: 0 0;
 }
 
 #social-nav {
@@ -117,7 +174,6 @@ div#content {
     width: 30px;
     float: right;
     font-weight: bold;
-    padding-top: 12px;
     text-align: right;
     z-index: 4;
 }
@@ -130,15 +186,78 @@ div#content {
     width: 30px;
     float: right;
     font-weight: bold;
-    padding-top: 12px;
     text-align: right;
     z-index: 4;
 }
 
+#gplus-profile {
+    background: url("../icons/gplus.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 30px;
+    margin-top: 5px;
+    width: 30px;
+    float: right;
+    font-weight: bold;
+    text-align: right;
+    z-index: 4;
+}
+
+div.post-body {
+    font-family: 'Nunito',sans-serif;
+}
 
 div.spacer {
     margin-top: 20px;
 }
+
+
+
+
+p.post-info {
+    font-size: 90%;
+    margin: 0 0 0 5px;
+    overflow: hidden;
+    padding: 8px 5px;
+}
+
+
+p.post-info {
+  padding-left: 0px;
+  margin-left: 0px;
+  
+}
+
+div.post-body {
+    display: block;
+    padding: 10px 10px 10px 5px;
+}
+
+
+
+#main h2 {
+    margin-bottom: 0px;
+}
+
+
+span.post-date {
+    background: none repeat scroll 0 0 #99173C;
+    color: white;
+    float: left;
+    padding: 3px 7px;
+}
+
+span.post-categories {
+    background: none repeat scroll 0 0 	#EBD1D8;
+    color: white;
+    float: left;
+    margin-left: 2px;
+    padding: 3px 5px 3px 5px;
+}
+
+.post-categories a {
+    color: #99173C;
+}
+
 
 #linkedin-profile {
     background: url("../icons/linkedin.png") no-repeat scroll 0 0 transparent;
@@ -148,7 +267,6 @@ div.spacer {
     width: 30px;
     float: right;
     font-weight: bold;
-    padding-top: 12px;
     text-align: right;
     z-index: 4;
 }
@@ -161,7 +279,6 @@ div.spacer {
     width: 30px;
     float: right;
     font-weight: bold;
-    padding-top: 12px;
     text-align: right;
     z-index: 4;
 }
@@ -170,6 +287,7 @@ div.spacer {
 div#sidebar {
 	padding-top: 10px;
 	width: 100%;
+	line-height: 21px;
 	//border-left: 1px solid;
 	//height: 100%;
 }
@@ -179,6 +297,32 @@ div#sidebar {
     display: block;
     padding: 4px 6px;
     text-decoration: none;
+}
+
+#tag-cloud a {
+    display: inline;
+    border-bottom: none;
+    color: #99173C;
+}
+
+#tag-cloud a.set-1 {
+    font-size: 70%;
+}
+
+#tag-cloud a.set-2 {
+    font-size: 87%;
+}
+
+#tag-cloud a.set-3 {
+    font-size: 102%;
+}
+
+#tag-cloud a.set-4 {
+    font-size: 116%;
+}
+
+#tag-cloud a.set-5 {
+    font-size: 140%;
 }
 
 #sidebar h3 {
@@ -227,13 +371,16 @@ a:hover {
 }
 
 a {
-    color: #3B73B9;
+    /* color: #3B73B9; */
+    color: #99173C;
     text-decoration: none;
 }
 
 h2 {
-    border-bottom: 1px solid #DDDDDD;
+    //border-bottom: 1px solid #DDDDDD;
+    color: #99173C;
     margin-top: 10px;
+    font-weight: 300;
     padding-top: 10px;
 }
 
@@ -502,46 +649,3 @@ ul.competencies .proficiency {
 
 
 
-
-
-
-p.post-info {
-    font-size: 90%;
-    margin: 0 0 0 5px;
-    overflow: hidden;
-    padding: 8px 5px;
-}
-
-
-p.post-info {
-  padding-left: 0px;
-  margin-left: 0px;
-  
-}
-
-div.post-body {
-    display: block;
-    padding: 10px 10px 10px 5px;
-}
-
-
-
-#main h2 {
-    margin-bottom: 0px;
-}
-
-
-span.post-date {
-    background: none repeat scroll 0 0 #00CCFF;
-    color: white;
-    float: left;
-    padding: 3px 7px;
-}
-
-span.post-categories {
-    background: none repeat scroll 0 0 #99CC00;
-    color: white;
-    float: left;
-    margin-left: 2px;
-    padding: 3px 7px 3px 3px;
-}
