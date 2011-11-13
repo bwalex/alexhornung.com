@@ -13,7 +13,7 @@ layout: nil
     <name>Alex Hornung</name>
   </author>
 
-  {% for post in site.posts %}
+  {% for post in site.posts limit:25 %}
   <entry>
     <id>http://www.alexhornung.com{{ post.id }}</id>
     <link type="text/html" rel="alternate" href="http://www.alexhornung.com{{ post.url }}"/>
