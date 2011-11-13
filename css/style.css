@@ -135,6 +135,25 @@ div#content {
     margin: 0 0;
 }
 
+div#bio {
+    display: inline-block;
+    width: 100%;
+}
+
+#bio img {
+    float: left;
+    margin-right: 10px;
+}
+
+#bio p {
+    margin-top: 0px;
+    font-size: 80%;
+}
+
+#bio p a {
+    border-bottom: none;
+}
+
 #posts ul li {
     list-style: none outside none;
 }

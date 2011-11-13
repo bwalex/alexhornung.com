@@ -4,6 +4,8 @@ pygments: true
 permalink: pretty
 paginate: 2
 
+excerpt_words: 50
+
 tag_page_layout: tag_page
 tag_page_dir: tag
 
@@ -29,3 +31,6 @@ menu:
 
   - text:       "About"
     url:        "/about"
+
+  - text:       "DragonFly"
+    url:        "/dragonfly"
