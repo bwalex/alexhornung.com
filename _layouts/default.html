@@ -74,7 +74,9 @@
           var disqus_developer = {{ site.disqus.developer }}; // developer mode is on
           var disqus_shortname = '{{ site.disqus.shortname }}';
 
-          {% if post.id %}
+          {% if page.meta.dsq_thread_id %}
+          var disqus_identifier = '{{ page.meta.dsq_thread_id }}';
+          {% elsif post.id %}
           var disqus_identifier = '{{ post.id }}';
           {% endif %}
 
