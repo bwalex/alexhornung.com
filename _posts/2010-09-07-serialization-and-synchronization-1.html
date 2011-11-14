@@ -33,8 +33,10 @@ comments: true
 <p style="text-align: justify; ">Now let&#39;s have a look at some of the possibilities to serialize and synchronize access to resources. In this post I&#39;ll introduce critical sections. Later posts will handle other possibilities such as spinlocks, adaptive mutexes, serializing tokens, message passing, conditional variables, per-cpu structures, etc.</p>
 <h3 style="text-align: justify; ">Critical Sections</h3>
 <p style="text-align: justify; ">Critical sections are strictly per-CPU and will actually disallow preemption of a certain block of code. This will make any operation appear atomic. The syntax is usually along the lines of:</p>
-<pre style="text-align: justify; ">crit_enter();
+{% highlight c %}
+crit_enter();
 ....
-crit_exit();</pre>
+crit_exit();
+{% endhighlight %}
 <p style="text-align: justify; ">The actual implementation behind this is usually along the lines of either bumping the priority of the executing thread on crit_enter() above all normal priority levels or handle a count of critical sections being held in the thread information and let the scheduler check if there are critical sections held before trying to preempt any thread. They also tend to disable interrupts, so they are only intended to lock rather short sections of code.</p>
 <p style="text-align: justify; ">The limitation of critical sections should be clear: They are strictly per-CPU. They won&#39;t protect data structures from concurrent access from other CPUs or, more generally other execution units. They are only intended to avoid preemption by, for example, interrupt handlers, or if kernel threads preempt each other by other kernel threads.&nbsp;</p>
