@@ -45,16 +45,18 @@ comments: true
 <pre style="text-align: justify; ">*(uint32_t)hdr-&gt;data = 0xffff;</pre>
 <p style="text-align: justify; ">ARM CPUs will only allow 32-bit access on addresses aligned on a 4-byte boundary, which is clearly not the case here. This effectively corrupted the &#39;id&#39; in the packet. Not a nice thing to happen, so be aware of your architectures limitations. Especially RISC architectures tend to be very picky about unaligned memory accesses.</p>
 <p style="text-align: justify; ">Another example of a more picky system is VIA&#39;s Padlock. Padlock is a security engine on some VIA CPUs proving an RNG, as well as cryptographic acceleration (for AES and some hashes). To use the AES instructions, you&#39;d use something like this gcc inline assembly:</p>
-{% highlight C %}
+
+{% highlight c %}
 		__asm __volatile(
-		&quot;pushf				\n\t&quot;
-		&quot;popf				\n\t&quot;
-		&quot;rep xcrypt-cbc			\n\t&quot;
-			: &quot;+a&quot; (iv), &quot;+c&quot; (count), &quot;+D&quot; (out), &quot;+S&quot; (in)
-			: &quot;b&quot; (key), &quot;d&quot; (cw)
-			: &quot;cc&quot;, &quot;memory&quot;
+		"pushf				\n\t"
+		"popf				\n\t"
+		"rep xcrypt-cbc			\n\t"
+			: "+a" (iv), "+c" (count), "+D" (out), "+S" (in)
+			: "b" (key), "d" (cw)
+			: "cc", "memory"
 		);
 {% endhighlight %}
+
 <p style="text-align: justify; ">I&#39;ve come across a similar code segment a year ago, where a careless developer just passed in the iv, out, key and cw without paying any attention to the alignment. This ended up in all sorts of general protection faults for a customer. The <a href="http://www.via.com.tw/en/downloads/whitepapers/initiatives/padlock/programming_guide.pdf">VIA Padlock Programming Guide</a> is very clear about this: in the normal case the iv, output buffer, input buffer, key and control word (cw) <strong>must</strong> be aligned on a 16-byte boundary. Otherwise a general protection fault will occur, and if this happens in the privileged mode, you&#39;ll have a kernel panic.&nbsp;</p>
 <p style="text-align: justify; ">While there is a bit that can be set to avoid this strict alignment requirement, setting it and actually making use of it will incur a significant loss in performance.</p>
 <p style="text-align: justify; ">This leads me to my last example: The x86 and x86_64 (amd64) architecture. On this architecture you won&#39;t end up with corruption or general protection faults (at least not usually) but you will incur a performance loss when using misaligned data accesses. This is especially significant for double precision floating point data, but also affects integer performance.</p>
