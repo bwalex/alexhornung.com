@@ -32,17 +32,23 @@ comments: true
 <p><!--more--></p>
 <p style="text-align: justify; ">So what do I mean when I say &#39;alignment&#39;? I&#39;m in particular referring to variable alignment in structures and on the stack, but this does also apply to alignment of blocks on disks, especially those with a non-512 byte block size.</p>
 <p style="text-align: justify; ">A variable is said to be N-byte aligned when its location (memory address) is (integer-)divisible by N. Formally this can be expressed as:</p>
-<pre style="text-align: justify; ">ADDR(var) % N == 0</pre>
+{% highlight c %}
+ADDR(var) % N == 0
+{% endhighlight %}
 <p style="text-align: justify; ">The &nbsp;next question usually is: Why would I care? Why is it important? You often don&#39;t need to care about it directly, since it happens automatically most of the time; the compiler does the magic. Nonetheless, if you aren&#39;t aligning stuff properly you can get everything from slow performance to memory corruption and general protection faults.</p>
 <p style="text-align: justify; ">Sometimes you&#39;ll see/use something like #pragma pack(1) or __attribute__((__packed__)) which effectively disables the automatic alignment done by the compiler on structures. This can be desirable if you want to know that a structure will look exactly the same in memory as you intended, without any padding added by the compiler. It is usually used for transmitting structures as a whole over a network, over files, etc. As a nice side effect, your structure will also have a smaller memory footprint. But be aware that if you use packed structures you&#39;ll have to deal with alignment yourself in case you do need it for a particular variable, meaning you&#39;ll have to add the padding yourself.</p>
 <p style="text-align: justify; ">Now on to some examples of what can happen with misaligned variables/structures.</p>
 <p style="text-align: justify; ">Recently I&#39;ve been writing a PHY and a MAC layer for an ARM SoC. The structure representing the MAC Header looked something like this:</p>
-<pre style="text-align: justify; ">struct MACHdr {
+{% highlight c %}
+struct MACHdr {
   uint8_t  id;
   uint32_t data[32]
-} __attribute__((__packed__));</pre>
+} __attribute__((__packed__));
+{% endhighlight %}
 <p style="text-align: justify; ">During the initial testing, I did, without much thinking, something along the lines of:</p>
-<pre style="text-align: justify; ">*(uint32_t)hdr-&gt;data = 0xffff;</pre>
+{% highlight c %}
+*(uint32_t)hdr->data = 0xffff;
+{% endhighlight %}
 <p style="text-align: justify; ">ARM CPUs will only allow 32-bit access on addresses aligned on a 4-byte boundary, which is clearly not the case here. This effectively corrupted the &#39;id&#39; in the packet. Not a nice thing to happen, so be aware of your architectures limitations. Especially RISC architectures tend to be very picky about unaligned memory accesses.</p>
 <p style="text-align: justify; ">Another example of a more picky system is VIA&#39;s Padlock. Padlock is a security engine on some VIA CPUs proving an RNG, as well as cryptographic acceleration (for AES and some hashes). To use the AES instructions, you&#39;d use something like this gcc inline assembly:</p>
 
