@@ -3,6 +3,14 @@ url: "http://alex-pc"
 pygments: true
 permalink: pretty
 paginate: 2
+markdown: redcarpet
+
+redcarpet:
+  extensions:
+    - no_intraemphasis
+    - tables
+    - fenced_code
+    - autolink
 
 excerpt_words: 50
 
