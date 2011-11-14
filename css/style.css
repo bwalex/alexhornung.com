@@ -152,6 +152,7 @@ div#bio {
 
 #bio p a {
     border-bottom: none;
+    display: inline;
 }
 
 #posts ul li {
