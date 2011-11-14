@@ -1,10 +1,6 @@
 body {
-    //background: url("../icons/background-stripe.png") repeat scroll 0 0 #E9EBE8;
-    //font-family: Verdana,Helvetica,Arial,sans-serif;
     font-family: Helvetica,Verdana,Arial,Clean,sans-serif;
     font-size: 100%;
-    //margin: 0;
-    //padding: 0;
     text-align: center;
     line-height: 24px;
 }
@@ -36,29 +32,8 @@ h1.logo {
     line-height: 1;
 }
 
-
-/*
-div#logo {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    //box-shadow: 0 5px 15px #AAAAAA;
-    background: none repeat scroll 0 0 #000000;
-    margin: 15px 0 0 -20px;
-    padding: 0px 20px;
-    width: 100%;
-    text-align: left;
-
-}*/
-
-/*div#logo h1.logo {
-	color: #34BEED;
-	padding: 0px;
-	margin: 10px 0 0 0;
-}*/
-
 div#content {
     background: none repeat scroll 0 0 #FFFFFF;
-    //box-shadow: 0 5px 15px #AAAAAA;
     margin-left: auto;
     margin-right: auto;
     min-height: 1px;
@@ -84,13 +59,7 @@ div#content {
     font-size: 75%;
 }
 
-
 #navbar {
-    //box-shadow: 0 5px 15px #AAAAAA;
-    //background: none repeat scroll 0 0 #000000;
-    //border-top-left-radius: 6px;
-    //border-top-right-radius: 6px;
-    //border-radius: 6px;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     height: 50px;
@@ -101,10 +70,7 @@ div#content {
 }
 
 #navbar div {
-    //background-color: #000000;
-    //border-right: 1px solid #666666;
     margin: 0;
-    //padding: 5px 0;
     text-align: center;
 }
 
@@ -222,63 +188,6 @@ div#bio {
     z-index: 4;
 }
 
-div.post-body {
-    font-family: 'Nunito',sans-serif;
-}
-
-div.spacer {
-    margin-top: 20px;
-}
-
-
-
-
-p.post-info {
-    font-size: 90%;
-    margin: 0 0 0 5px;
-    overflow: hidden;
-    padding: 8px 5px;
-}
-
-
-p.post-info {
-  padding-left: 0px;
-  margin-left: 0px;
-  
-}
-
-div.post-body {
-    display: block;
-    padding: 10px 10px 10px 5px;
-}
-
-
-
-#main h2 {
-    margin-bottom: 0px;
-}
-
-
-span.post-date {
-    background: none repeat scroll 0 0 #99173C;
-    color: white;
-    float: left;
-    padding: 3px 7px;
-}
-
-span.post-categories {
-    background: none repeat scroll 0 0 	#EBD1D8;
-    color: white;
-    float: left;
-    margin-left: 2px;
-    padding: 3px 5px 3px 5px;
-}
-
-.post-categories a {
-    color: #99173C;
-}
-
-
 #linkedin-profile {
     background: url("../icons/linkedin.png") no-repeat scroll 0 0 transparent;
     display: block;
@@ -303,13 +212,59 @@ span.post-categories {
     z-index: 4;
 }
 
+div.post-body {
+    font-family: 'Nunito',sans-serif;
+}
+
+div.spacer {
+    margin-top: 20px;
+}
+
+p.post-info {
+    font-size: 90%;
+    margin: 0 0 0 5px;
+    overflow: hidden;
+    padding: 8px 5px;
+}
+
+p.post-info {
+  padding-left: 0px;
+  margin-left: 0px;
+  
+}
+
+div.post-body {
+    display: block;
+    padding: 10px 10px 10px 5px;
+}
+
+#main h2 {
+    margin-bottom: 0px;
+}
+
+span.post-date {
+    background: none repeat scroll 0 0 #99173C;
+    color: white;
+    float: left;
+    padding: 3px 7px;
+}
+
+span.post-categories {
+    background: none repeat scroll 0 0 	#EBD1D8;
+    color: white;
+    float: left;
+    margin-left: 2px;
+    padding: 3px 5px 3px 5px;
+}
+
+.post-categories a {
+    color: #99173C;
+}
 
 div#sidebar {
-	padding-top: 10px;
-	width: 100%;
-	line-height: 21px;
-	//border-left: 1px solid;
-	//height: 100%;
+    padding-top: 10px;
+    width: 100%;
+    line-height: 21px;
 }
 
 #sidebar a {
@@ -360,9 +315,7 @@ div#sidebar {
     color: #CC3300;
 }
 
-
 div#main {
-	//border-right: 1px solid #DDDDDD;
 	padding-right: 30px;
 	padding-top: 10px;
 }
@@ -371,10 +324,12 @@ table {
     border-collapse: collapse;
     margin: 0.5em 0 0.5em 0;
 }
+
 th, td {
     border: 1pt solid #ADB9CC;
     padding: 0.25em 0.5em;
 }
+
 th, td.theader {
     background-color: #F8F8F8;
     font-weight: bold;
@@ -397,18 +352,10 @@ a {
 }
 
 h2 {
-    //border-bottom: 1px solid #DDDDDD;
     color: #99173C;
     margin-top: 10px;
     font-weight: 300;
     padding-top: 10px;
-}
-
-#content .box.code {
-    border-radius: 4px;
-    border: 1px solid #CCCCCC;
-    background: url("http://flowplayer.org/img/box/code_lines.png") repeat-y scroll 0 -3px #F9F9FA;
-    padding: 0px 14px 0px 35px;
 }
 
 pre, code, .code {
@@ -416,7 +363,6 @@ pre, code, .code {
     font-size: 12px;
     line-height: 16px;
 }
-
 
 div.row {
     clear: left;
@@ -507,165 +453,5 @@ img.boring {
     border: medium none;
     outline: medium none;
 }
-
-/* LinkedIn Profile CSS */
-
-.profile-header {
-    background-color: #DDF0F8;
-    margin: 0 0 15px;
-    min-height: 90px;
-    padding: 15px;
-}
-
-.profile-header h1 {
-    border: medium none;
-    font-size: 180%;
-    margin: 0 0 4px;
-    padding: 0;
-}
-
-.profile-header .image {
-    float: left;
-    margin: 0 10px 10px 0;
-}
-
-.profile-header .image img {
-    border: 5px solid #FFFFFF;
-    padding: 0;
-}
-.profile-header p {
-    font-size: 130%;
-}
-.profile-header p.title {
-    margin: 0 0 6px;
-}
-.profile-header .demographic-info {
-    color: #666666;
-    font-size: 130%;
-    margin: 4px 0 6px;
-    padding: 0;
-}
-.profile-header .demographic-info dt {
-    display: none;
-}
-.profile-header .demographic-info dd {
-    display: inline;
-    margin: 0;
-    padding: 0 4px 0 0;
-}
-.profile-header .demographic-info dd.industry {
-    border-left: 1px solid #666666;
-    padding-left: 6px;
-}
-
-.at {
-    font-weight: normal !important;
-}
-div.section {
-}
-#overview {
-    -moz-border-bottom-colors: none;
-    -moz-border-image: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: none repeat scroll 0 0 #FFFFFF;
-    border-color: #C8E4F1;
-    border-style: solid;
-    border-width: 0 1px 2px 0;
-    clear: both;
-    margin: 0 0 0 10px;
-    overflow: hidden;
-    padding: 0 10px 10px;
-}
-#overview dt {
-    color: #666666;
-    font-size: 130%;
-    height: 1em;
-    margin: 0;
-    padding-top: 10px;
-    width: 13em;
-}
-#overview dd {
-    border-bottom: 1px dotted #666666;
-    margin: -1.3em 0 0;
-    overflow: hidden;
-    padding: 0 0 10px 13em;
-}
-#overview dd ul, #overview p {
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
-}
-#overview dd:last-child {
-    border: medium none;
-    margin-bottom: -6px;
-}
-#overview dd.last {
-    border: medium none;
-    margin-bottom: -6px;
-}
-#overview ul.current {
-    font-weight: bold;
-}
-#overview p, #overview li {
-    font-size: 110%;
-}
-#profile-summary p {
-    margin: 0 0 0 15px;
-}
-
-#profile-education h3, #profile-education h4, #profile-education p.period {
-    margin: 0;
-    padding: 0;
-}
-#profile-education h4 {
-    font-size: 100%;
-    font-weight: normal;
-}
-#profile-education p.period {
-    color: #666666;
-}
-#profile-experience h3, #profile-experience h4, #profile-experience p {
-    margin: 0;
-    padding: 0;
-}
-#profile-experience h4 {
-    font-size: 100%;
-    font-weight: normal;
-}
-#profile-experience p.orgstats {
-    color: #999999;
-}
-#profile-experience p.period {
-    color: #666666;
-}
-#profile-experience p.desc {
-    margin-top: 5px;
-}
-.position {
-    border-bottom: 1px dotted #666666;
-    margin-bottom: 5px;
-    margin-left: 15px;
-    padding-bottom: 5px;
-}
-.position:last-child {
-    border: medium none;
-    margin-bottom: 0;
-    padding: 0;
-}
-
-ul.competencies h3 {
-    display: inline;
-    font-weight: normal;
-    font-size: 100%;
-}
-ul.competencies .proficiency {
-    color: #666666;
-}
-
-
-/* End LinkedIn Profile CSS */
-
 
 
