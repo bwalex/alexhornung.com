@@ -9,7 +9,7 @@
   </p>
   <div class="post-body">
   {% if excerpt_only %}
-    {{ content | strip_html | truncatewords: site.excerpt_words }}
+    {{ post.content | strip_html | truncatewords: site.excerpt_words }}
   {% else %}
     {{ content }}
   {% endif %}
