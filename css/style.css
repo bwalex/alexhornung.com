@@ -119,6 +119,7 @@ div#bio {
 #bio p a {
     border-bottom: none;
     display: inline;
+    padding: 0px;
 }
 
 #posts ul li {
