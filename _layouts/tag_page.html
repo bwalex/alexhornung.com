@@ -11,9 +11,6 @@ layout: default
       <time class="published updated"
             datetime="{{ post.date | date: "%Y-%m-%d" }}"
             pubdate>{{ post.date | date: "%B %d, %Y" }}</time>
-      <div class="entry-summary">
-        {{ post.Teaser | markdownify }}
-      </div>
     </article></li>
 {% endfor %}
   </ol>

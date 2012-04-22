@@ -17,7 +17,7 @@ hr {
 }
 
 div#header {
-    border-bottom: 1px dotted #999999;
+    //border-bottom: 1px dotted #999999;
 }
 
 h1.logo {
@@ -25,7 +25,7 @@ h1.logo {
     color: #2E2633;
     margin: 0px;
     padding-top: 24px;
-    padding-bottom: 24px;
+    padding-bottom: 6px;
     letter-spacing: -1px;
     text-align: center;
     font-size: 3em;
@@ -60,19 +60,12 @@ div#content {
 }
 
 #navbar {
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
     height: 50px;
-    margin: 0 0 0 -20px;
     overflow: hidden;
-    padding: 0 20px;
-    width: 100%;
+    padding-left: 20px;
+    border-bottom: 1px dotted #999999;
 }
 
-#navbar div {
-    margin: 0;
-    text-align: center;
-}
 
 #navbar div a {
     color: black;
@@ -80,7 +73,7 @@ div#content {
     font-size: 90%;
     font-weight: bold;
     height: 26px;
-    padding: 15px 15px 6px;
+    padding: 15px 15px 0px;
     text-decoration: none;
 }
 
@@ -103,7 +96,8 @@ div#content {
 
 div#bio {
     display: inline-block;
-    width: 100%;
+    //width: 100%;
+    margin-bottom: 20px;
 }
 
 #bio img {
@@ -149,68 +143,23 @@ div#bio {
 }
 
 #social-nav {
-	padding: 12px;
-	float: right;
+    margin-top: 10px;
+    vertical-align: bottom;
+    valign: bottom;
+    text-align: right !important;
 }
 
-#twitter-profile {
-    background: url("../icons/twitter.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 30px;
-    margin-top: 5px;
-    width: 30px;
-    float: right;
-    font-weight: bold;
-    text-align: right;
-    z-index: 4;
+#social-nav a {
+    padding: 0px !important;
+    width: 30px !important;
+    height: 30px !important;
+    display: inline !important;
 }
 
-#flickr-profile {
-    background: url("../icons/flickr.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 30px;
-    margin-top: 5px;
-    width: 30px;
-    float: right;
-    font-weight: bold;
-    text-align: right;
-    z-index: 4;
-}
 
-#gplus-profile {
-    background: url("../icons/gplus.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 30px;
-    margin-top: 5px;
+#social-nav img {
     width: 30px;
-    float: right;
-    font-weight: bold;
-    text-align: right;
-    z-index: 4;
-}
-
-#linkedin-profile {
-    background: url("../icons/linkedin.png") no-repeat scroll 0 0 transparent;
-    display: block;
     height: 30px;
-    margin-top: 5px;
-    width: 30px;
-    float: right;
-    font-weight: bold;
-    text-align: right;
-    z-index: 4;
-}
-
-#rss-feed {
-    background: url("../icons/rss.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    height: 30px;
-    margin-top: 5px;
-    width: 30px;
-    float: right;
-    font-weight: bold;
-    text-align: right;
-    z-index: 4;
 }
 
 div.post-body {
@@ -222,16 +171,10 @@ div.spacer {
 }
 
 p.post-info {
-    font-size: 90%;
-    margin: 0 0 0 5px;
+    font-size: 80%;
+    margin: 0;
     overflow: hidden;
-    padding: 8px 5px;
-}
-
-p.post-info {
-  padding-left: 0px;
-  margin-left: 0px;
-  
+    padding-left: 0px; 
 }
 
 div.post-body {
@@ -240,26 +183,31 @@ div.post-body {
 }
 
 #main h2 {
+    margin-bottom: 10px;
+}
+
+#main #posts h2 {
     margin-bottom: 0px;
 }
 
 span.post-date {
-    background: none repeat scroll 0 0 #99173C;
-    color: white;
+    //background: none repeat scroll 0 0 #99173C;
+    //color: white;
     float: left;
     padding: 3px 7px;
+    margin-right: 5px;
 }
 
 span.post-categories {
-    background: none repeat scroll 0 0 	#EBD1D8;
-    color: white;
+    //background: none repeat scroll 0 0 	#EBD1D8;
+    //color: white;
     float: left;
     margin-left: 2px;
     padding: 3px 5px 3px 5px;
 }
 
 .post-categories a {
-    color: #99173C;
+    //color: #99173C;
 }
 
 div#sidebar {
@@ -343,7 +291,7 @@ a:link, a:visited {
 }
 
 a:hover {
-    color: #CC3300;
+    color: black;
 }
 
 a {
@@ -365,54 +313,6 @@ pre, code, .code {
     line-height: 16px;
 }
 
-div.row {
-    clear: left;
-    padding-top: 5px;
-    width: 100%;
-}
-div.row span.label {
-    float: left;
-    text-align: right;
-    width: 40%;
-}
-div.row span.formw {
-    float: right;
-    text-align: left;
-    width: 60%;
-}
-div.row span.labelfull {
-    float: left;
-    text-align: right;
-    width: 20%;
-}
-div.row span.labelfullleft {
-    float: left;
-    text-align: left;
-    width: 100px;
-}
-div.row span.formfull {
-    float: right;
-    text-align: left;
-    width: 800px;
-}
-div.row span.left {
-    float: left;
-    width: 50%;
-}
-div.row span.right {
-    float: right;
-    width: 50%;
-}
-div.row div.leftfixed {
-    float: left;
-    text-align: left;
-    width: 300px;
-}
-div.row div.rightfixed {
-    float: right;
-    text-align: left;
-    width: 300px;
-}
 
 .clearfix:after {
     clear: both;
@@ -455,4 +355,7 @@ img.boring {
     outline: medium none;
 }
 
-
+h3 {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
