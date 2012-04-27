@@ -17,7 +17,6 @@ hr {
 }
 
 div#header {
-    //border-bottom: 1px dotted #999999;
 }
 
 h1.logo {
@@ -72,7 +71,6 @@ div#content {
     display: block;
     font-size: 90%;
     font-weight: bold;
-//  height: 26px;
     padding: 15px 15px 0px;
     text-decoration: none;
 }
@@ -96,7 +94,6 @@ div#content {
 
 div#bio {
     display: inline-block;
-    //width: 100%;
     margin-bottom: 20px;
 }
 
@@ -145,7 +142,6 @@ div#bio {
 #social-nav {
     margin-top: 10px;
     vertical-align: bottom;
-    valign: bottom;
     text-align: right !important;
 }
 
@@ -191,23 +187,18 @@ div.post-body {
 }
 
 span.post-date {
-    //background: none repeat scroll 0 0 #99173C;
-    //color: white;
     float: left;
     padding: 3px 7px;
     margin-right: 5px;
 }
 
 span.post-categories {
-    //background: none repeat scroll 0 0 	#EBD1D8;
-    //color: white;
     float: left;
     margin-left: 2px;
     padding: 3px 5px 3px 5px;
 }
 
 .post-categories a {
-    //color: #99173C;
 }
 
 div#sidebar {
