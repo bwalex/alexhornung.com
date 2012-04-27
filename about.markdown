@@ -3,7 +3,7 @@ title: About
 layout: default
 ---
 
-<img src="/images/conference.jpg" width="250px" style="float: right; margin-left: 20px;" alt="A photo of me giving a talk">
+<img src="/images/conference.jpg" width="250" style="float: right; margin-left: 20px;" alt="A photo of me giving a talk">
 
 I'm an electronic engineer living in the UK. I mainly do digital hardware
 design, in particular processors, but have significant experience in software,
