@@ -2,10 +2,6 @@
 # before nanoc starts compiling.
 require 'json'
 
-require 'nanoc/cachebuster'
-
-include Nanoc3::Helpers::CacheBusting
-
 include Nanoc3::Helpers::Rendering
 
 include Nanoc3::Helpers::Blogging
