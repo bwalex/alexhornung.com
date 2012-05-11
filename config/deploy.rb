@@ -1,4 +1,4 @@
-set :application, "test.alexhornung.com"
+set :application, "alexhornung.com"
 set :repository,  "output"
 set :scm, :none
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
