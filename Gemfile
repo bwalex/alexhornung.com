@@ -18,3 +18,4 @@ gem "uglifier", "~> 1.1.0"
 gem "therubyracer", "~> 0.10.1"
 
 gem "nokogiri", "~> 1.5.2"
+gem "sanitize", "~> 2.0.3"

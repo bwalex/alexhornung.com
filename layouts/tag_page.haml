@@ -1,11 +1,11 @@
 :ruby
-  pages = items_with_tag(@tag)
+  pages = items_with_tag(@tag).sort { |a,b| b[:created_at] <=> a[:created_at] }
 
-%section.recent
-  %ol.hatom
+%section#posts
+  %ul
     - pages.each do |article|
-      %li.hentry
-        %article
+      %li
+        %time.posted
+          = pretty_time article[:created_at]
+        %span.post-title
           = link_to article[:title], article
-          %time.published.updated
-            = pretty_time article[:created_at]

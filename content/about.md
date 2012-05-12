@@ -16,5 +16,13 @@ might see me giving talks on DragonFly BSD, such as on the photo to the right.
 
 You'll find a number of my own projects on here or on my [github page][github].
 
+My PGP key is [0x89EBF03A272BBD8A](http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x89EBF03A272BBD8A).
+My key fingerprint is:
+
+<pre>
+pub   2048R/272BBD8A 2010-07-13
+      Key fingerprint = 8A8A 52F2 2214 6B8F 8A02  1997 89EB F03A 272B BD8A
+</pre>
+
 [dragonfly]: http://www.dragonflybsd.org
 [github]: http://github.com/bwalex

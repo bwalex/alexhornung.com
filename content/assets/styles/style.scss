@@ -120,6 +120,13 @@ div#bio {
     list-style: none outside none;
 }
 
+#posts {
+	.post-categories,
+	time.posted {
+		font-size: 80%;
+	}
+}
+
 .pagination {
     margin-top: 32px;
     font-size: 80%;
@@ -180,6 +187,7 @@ div.post-body {
 #main h1 {
     margin: 8px;
     margin-bottom: 15px;
+    font-size: 150%;
 }
 
 #main h2 {
@@ -191,13 +199,11 @@ div.post-body {
 }
 
 span.post-date {
-    float: left;
     padding: 3px 7px;
     margin-right: 5px;
 }
 
 span.post-categories {
-    float: left;
     margin-left: 2px;
     padding: 3px 5px 3px 5px;
 }
@@ -256,7 +262,7 @@ div#sidebar {
 }
 
 #sidebar a:hover {
-    color: #CC3300;
+    color: black;
 }
 
 div#main {

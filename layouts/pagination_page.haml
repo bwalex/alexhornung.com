@@ -1,7 +1,7 @@
 :ruby
   pages = sorted_articles.slice(@item_id*@config[:page_size], @config[:page_size])
 
-%section#posts
+-#%section#posts
   %ul
     - pages.each do |article|
       %li
@@ -9,7 +9,19 @@
           = link_to article[:title], article
         .post
           = render "partials/post-info", :item => article
-          = snippet(article.compiled_content, 75) + link_to("Read more…", article)
+          = snippet(article.compiled_content, 140) + link_to("Read more…", article)
+
+%section#posts
+  %ul
+    - pages.each do |article|
+      %li
+        %time.posted
+          = pretty_time article[:created_at]
+        %span.post-title
+          = link_to article[:title], article
+        - for tag in article[:tags]
+          %span.post-categories
+            = link_for_tag tag, "/tag/"
 
 .pagination
   - if @item[:prev_link]

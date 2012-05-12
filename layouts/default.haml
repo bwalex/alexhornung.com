@@ -43,8 +43,6 @@
           %a{ :target => "_blank", :href => "/atom.xml" }
             %img.icon-rss{ :src => "/assets/icons/empty.gif", :alt => "Atom Feed" }
 
-    .spacer.container
-
     #content.container
       .row
         .ninecol
@@ -72,3 +70,14 @@
       #footer.row
         .twelvecol.last
           Copyright (c) 2010-2012, Alex Hornung
+    :javascript
+      var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.alexhornung.com/stats/" : "http://www.alexhornung.com/stats/");
+      document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    :javascript
+      try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+      } catch( err ) {}
+    %noscript
+      <p><img src="http://www.alexhornung.com/stats/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>

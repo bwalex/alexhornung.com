@@ -62,17 +62,17 @@ compile '/atom/' do
 end
 
 compile '/' do
-  filter :haml
+  filter :haml, :ugly => true
   layout item[:layout] || 'default'
 end
 
 compile '/archive/*/' do
-  filter :haml
+  filter :haml, :ugly => true
   layout item[:layout] || 'default'
 end
 
 compile '/tag/*/' do
-  filter :haml
+  filter :haml, :ugly => true 
   layout item[:layout] || 'default'
 end
 
@@ -92,7 +92,7 @@ compile '*' do
       :fenced_code_blocks => true,
       :space_after_headers => true
     } if item[:extension] == 'md'
-    filter :haml if item[:extension] == 'haml'
+    filter :haml, :ugly => true  if item[:extension] == 'haml'
     layout item[:layout] || 'default'
   end
 end
@@ -124,4 +124,4 @@ route '*' do
   end
 end
 
-layout '*', :haml
+layout '*', :haml, :format => :html5, :ugly => true
