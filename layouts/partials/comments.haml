@@ -1,0 +1,27 @@
+:javascript
+  var xh = new XMLHttpRequest();
+  xh.onreadystatechange = function() {
+    if (xh.readyState == 4 && (xh.status == 200 || xh.status == 304))
+      document.getElementById("comment-contents").innerHTML = xh.responseText;
+  };
+  xh.open("GET", "/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", true);
+  xh.send();
+
+#comment-contents
+
+.comment-form
+  %form{ :action => "/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", :method => "POST" }
+    %fieldset
+      %legend Post a comment
+      .row
+        %label{ :for => "name" } Name
+        %input{ :type => "text", :name => "name" }
+      .row
+        %label{ :for => "email" } Email (not shown)
+        %input{ :type => "text", :name => "email" }
+      .row
+        %label{ :for => "comment" } Comment
+      .row
+        %textarea{ :name => "comment" }
+      .row
+        %input{ :type => "submit", :value => "Post comment" }

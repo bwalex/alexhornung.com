@@ -1,0 +1,23 @@
+:ruby
+  pages = sorted_articles.slice(@item_id*@config[:page_size], @config[:page_size])
+
+%section#posts
+  %ul
+    - pages.each do |article|
+      %li
+        %h2
+          = link_to article[:title], article
+        .post
+          = render "partials/post-info", :item => article
+          = snippet(article.compiled_content, 75) + link_to("Read more…", article)
+
+.pagination
+  - if @item[:prev_link]
+    %span.prev
+      %a{ :href => @item[:prev_link] }
+        Newer Entries
+
+  - if @item[:next_link]
+    %span.next
+      %a{ :href => @item[:next_link] }
+        Older Entries

@@ -1,0 +1,127 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+require 'time'
+require 'redcarpet'
+require 'pygments'
+require 'digest/md5'
+
+
+class HTMLwithPygments < Redcarpet::Render::HTML
+  def block_code(code, language)
+    Pygments.highlight(code, :lexer => language)
+  end
+end
+
+
+
+preprocess do
+  items.each do |item|
+    if item.identifier =~ %r{^/articles/(.*)$}
+      item[:created_at] = Time.parse($1)
+      item[:kind] = 'article'
+      item[:hash] = Digest::MD5.hexdigest(item.identifier) 
+    end
+  end
+
+  create_tagpages
+  create_paginate
+end
+
+
+# The base javascript and stylesheet files
+compile %r{/assets/(lib|styles|js)/} do
+  # Use erb to enable timestamps and author information and such.
+  #filter :erb
+  #filter :concat
+  filter :coffeescript if item[:extension] == 'coffee'
+  filter :sass, { :syntax => :scss, :style => :compressed } if item[:extension] == 'scss'
+  #filter :cache_buster
+  filter :minify
+end
+
+
+compile '/sitemap/' do
+  # don't filter or layout
+  filter :haml
+end
+
+compile '/atom/' do
+  filter :haml
+end
+
+compile '/' do
+  filter :haml
+  layout item[:layout] || 'default'
+end
+
+compile '/archive/*/' do
+  filter :haml
+  layout item[:layout] || 'default'
+end
+
+compile '/tag/*/' do
+  filter :haml
+  layout item[:layout] || 'default'
+end
+
+compile '/partials/*/' do
+end
+
+compile '*' do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :redcarpet, :renderer => HTMLwithPygments, :options => {
+      :autolink => true,
+      :tables => true,
+      :no_intra_emphasis => true,
+      :strikethrough => true,
+      :lax_html_blocks => true,
+      :fenced_code_blocks => true,
+      :space_after_headers => true
+    } if item[:extension] == 'md'
+    filter :haml if item[:extension] == 'haml'
+    layout item[:layout] || 'default'
+  end
+end
+
+
+route %r{^/(assets/.*|atom|sitemap|robots|atom)/$} do
+  ext = item[:extension]
+  ext = 'js' if ext == 'coffee'
+  ext = 'css' if ext == 'scss'
+
+  item.identifier.chop + '.' + ext
+end
+
+
+route '/articles/*/' do
+  item.identifier.gsub(%r{^/articles/(\d+)-(\d+)-(\d+)-([^/]*)\/$}) do |match|
+    "/#{$1}/#{$2}/#{$3}/#{$4}/index.html"
+  end
+end
+
+route '*' do
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+
+    item.identifier + 'index.html'
+  end
+end
+
+layout '*', :haml

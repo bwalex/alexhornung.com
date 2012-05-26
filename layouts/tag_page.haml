@@ -1,0 +1,11 @@
+:ruby
+  pages = items_with_tag(@tag)
+
+%section.recent
+  %ol.hatom
+    - pages.each do |article|
+      %li.hentry
+        %article
+          = link_to article[:title], article
+          %time.published.updated
+            = pretty_time article[:created_at]

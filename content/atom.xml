@@ -1,0 +1,7 @@
+---
+layout: null
+title: alexhornung.com blog feed
+author_name: Alex Hornung
+author_uri: https://www.alexhornung.com
+---
+= atom_feed :limit => 10

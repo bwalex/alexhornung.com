@@ -1,0 +1,7 @@
+%p.post-info
+  %span.post-date
+    = pretty_time @item[:created_at]
+  - unless @item[:tags].nil?
+    - for tag in @item[:tags]
+      %span.post-categories
+        = link_for_tag tag, "/tag/"

@@ -1,0 +1,5 @@
+:ruby
+  tags = rank_tags(5)
+- tags.each do |tag, rank|
+  %a{ :class => "set-#{rank}", :href => "/tag/#{tag}" }
+    = tag
