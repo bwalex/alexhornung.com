@@ -7,6 +7,15 @@
   xh.open("GET", "/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", true);
   xh.send();
 
+  var xh2 = new XMLHttpRequest();
+  xh2.onreadystatechange = function() {
+    if (xh2.readyState == 4 && (xh2.status == 200 || xh2.status == 304))
+      document.getElementById("captcha").innerHTML = xh2.responseText;
+  };
+  xh2.open("GET", "/comments/site/#{@config[:domain]}/captcha", true);
+  xh2.send();
+
+
 #comment-contents
 
 .comment-form
@@ -23,5 +32,6 @@
         %label{ :for => "comment" } Comment
       .row
         %textarea{ :name => "comment" }
+      .row#captcha
       .row
         %input{ :type => "submit", :value => "Post comment" }
