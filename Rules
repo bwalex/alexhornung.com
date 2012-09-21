@@ -58,6 +58,7 @@ compile '/sitemap/' do
 end
 
 compile '/atom/' do
+  # don't filter or layout
   filter :haml
 end
 
@@ -92,8 +93,14 @@ compile '*' do
       :fenced_code_blocks => true,
       :space_after_headers => true
     } if item[:extension] == 'md'
+
     filter :haml, :ugly => true  if item[:extension] == 'haml'
+
     layout item[:layout] || 'default'
+
+    # Inject <script> and <link> tags, as appropriate
+    filter :js_inject  if item[:js]
+    filter :css_inject if item[:css]
   end
 end
 
