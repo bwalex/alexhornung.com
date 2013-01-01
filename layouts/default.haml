@@ -72,7 +72,8 @@
     .container
       #footer.row
         .twelvecol.last
-          Copyright (c) 2010-2012, Alex Hornung
+          = "Copyright (c) 2010-#{Time.now.year}, Alex Hornung"
+
     :javascript
       var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.alexhornung.com/stats/" : "http://www.alexhornung.com/stats/");
       document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
