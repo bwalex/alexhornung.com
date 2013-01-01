@@ -84,13 +84,16 @@ domain:         "www.alexhornung.com"
 #flickr:
 #  profile:      "66733349@N00"
 
-gplus:
-  profile:      "106862819123696412856"
+#gplus:
+#  profile:      "106862819123696412856"
 
 github:
   profile:      "bwalex"
 
 twitter:
+  profile:      "bwalex"
+
+identica:
   profile:      "bwalex"
 
 linkedin:

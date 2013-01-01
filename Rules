@@ -107,6 +107,7 @@ end
 
 route %r{^/(assets/.*|atom|sitemap|robots|atom)/$} do
   ext = item[:extension]
+  ext ||= ""
   ext = 'js' if ext == 'coffee'
   ext = 'css' if ext == 'scss'
 

@@ -61,7 +61,7 @@ div#content {
 }
 
 #navbar {
-    height: 50px;
+    //height: 50px;
     overflow: hidden;
     padding-left: 20px;
     border-bottom: 1px dotted #999999;
@@ -441,23 +441,27 @@ textarea {
 	background: url(/assets/icons/sprite.png) 0 0;
 
 	&.icon-github {
-		background-position: 0px -84px;
+		background-position: -84px 0px;
 	}
 
 	&.icon-linkedin {
-		background-position: 0px -56px;
+		background-position: -56px 0px;
 	}
 
 	&.icon-twitter {
-		background-position: 0px -140px;
+		background-position: -28px -28px;
+	}
+
+	&.icon-identica {
+		background-position: -56px -28px;
 	}
 
 	&.icon-gplus {
-		background-position: 0px -28px;
+		background-position: -28px 0px;
 	}
 
 	&.icon-rss {
-		background-position: 0px -112px;
+		background-position: 0px -28px;
 	}
 
 	&.icon-flickr {

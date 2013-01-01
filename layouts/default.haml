@@ -37,6 +37,9 @@
           - if @config[:twitter]
             %a{ :target => "_blank", :href => "https://www.twitter.com/" + @config[:twitter][:profile] }
               %img.icon-twitter{ :src => "/assets/icons/empty.gif", :alt => "Twitter" }
+          - if @config[:identica]
+            %a{ :target => "_blank", :href => "https://identi.ca/" + @config[:identica][:profile] }
+              %img.icon-identica{ :src => "/assets/icons/empty.gif", :alt => "identi.ca" }
           - if @config[:gplus]
             %a{ :target => "_blank", :href => "https://plus.google.com/" + @config[:gplus][:profile] }
               %img.icon-gplus{ :src => "/assets/icons/empty.gif", :alt => "Google+" }
