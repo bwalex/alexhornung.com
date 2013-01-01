@@ -120,7 +120,10 @@ div#bio {
 }
 
 #posts {
-	.post-categories,
+	.post-categories {
+	  font-size: 70%;
+	  font-style: italic;
+	}
 	time.posted {
 		font-size: 80%;
 		display: inline-block;
