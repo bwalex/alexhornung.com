@@ -117,6 +117,7 @@ div#bio {
 
 #posts ul li {
     list-style: none outside none;
+    line-height: 2em;
 }
 
 #posts {
@@ -177,6 +178,11 @@ p.post-info {
     margin: 0;
     overflow: hidden;
     padding-left: 0px; 
+}
+
+.post-title > a {
+    color: black;
+    text-decoration: underline;
 }
 
 div.post-body {
