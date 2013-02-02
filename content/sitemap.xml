@@ -1,4 +1,4 @@
 ---
 layout: null
 ---
-= xml_sitemap :items => @items.reject{ |i| i[:is_hidden] || i[:binary] }
+= xml_sitemap :items => @items.reject{ |i| %w{png gif jpg jpeg coffee scss sass less css xml js txt}.include?(i[:extension]) || i.identifier =~ /404|500|htaccess/ || i.identifier =~ /assets/ || i[:is_hidden] || i.binary? || i[:js] || i[:css] }
