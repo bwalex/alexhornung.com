@@ -4,7 +4,7 @@
     if (xh.readyState == 4 && (xh.status == 200 || xh.status == 304))
       document.getElementById("comment-contents").innerHTML = xh.responseText;
   };
-  xh.open("GET", "/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", true);
+  xh.open("GET", "http://www.alexhornung.com/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", true);
   xh.send();
 
   var xh2 = new XMLHttpRequest();
@@ -12,26 +12,22 @@
     if (xh2.readyState == 4 && (xh2.status == 200 || xh2.status == 304))
       document.getElementById("captcha").innerHTML = xh2.responseText;
   };
-  xh2.open("GET", "/comments/site/#{@config[:domain]}/captcha", true);
+  xh2.open("GET", "http://www.alexhornung.com/comments/site/#{@config[:domain]}/captcha", true);
   xh2.send();
 
 
-#comment-contents
-
-.comment-form
-  %form{ :action => "/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", :method => "POST" }
-    %fieldset
-      %legend Post a comment
-      .row
+%section#comments
+  #comment-form
+    %form{ :action => "http://www.alexhornung.com/comments/site/#{@config[:domain]}/article/#{@item[:hash]}", :method => "POST" }
+      %fieldset
+        %legend Post a comment
         %label{ :for => "name" } Name
         %input{ :type => "text", :name => "name" }
-      .row
         %label{ :for => "email" } Email (not shown)
         %input{ :type => "text", :name => "email" }
-      .row
         %label{ :for => "comment" } Comment
-      .row
         %textarea{ :name => "comment" }
-      .row#captcha
-      .row
-        %input{ :type => "submit", :value => "Post comment" }
+        #captcha
+        %input.button{ :type => "submit", :value => "Post comment" }
+
+  #comment-contents

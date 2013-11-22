@@ -12,7 +12,7 @@ module PaginateTags
 
       @items << Nanoc::Item.new(
         "= render 'tag_page', :tag => '#{tag}'",
-        { :title => title },
+        { :title => title, :kind => 'post_index' },
         url
       )
     end

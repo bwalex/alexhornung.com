@@ -40,6 +40,12 @@ preprocess do
 end
 
 
+compile '/assets/styles/*/_*' do
+end
+
+compile '/assets/styles/_*' do
+end
+
 # The base javascript and stylesheet files
 compile %r{/assets/(lib|styles|js)/} do
   # Use erb to enable timestamps and author information and such.
@@ -80,6 +86,13 @@ end
 compile '/partials/*/' do
 end
 
+route '/assets/styles/_*' do
+   nil
+end
+route '/assets/styles/*/_*' do
+   nil
+end
+
 compile '*' do
   if item.binary?
     # don’t filter binary items
@@ -104,6 +117,8 @@ compile '*' do
   end
 end
 
+
+passthrough '/assets/icons/.*'
 
 route %r{^/(assets/.*|atom|sitemap|robots|atom)/$} do
   ext = item[:extension]

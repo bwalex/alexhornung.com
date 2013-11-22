@@ -18,8 +18,8 @@ module Paginate
 
       url = "/" if i == 0
       url = "/archive/#{i}/" if i > 0
-      title = nil if i == 0
-      title = "Archive (articles #{first} to #{last})" if i > 0
+      title = nil #if i == 0
+      #title = "Archive (articles #{first} to #{last})" if i > 0
       prev_link = nil if i == 0
       prev_link = '/' if i == 1
       prev_link = "/archive/#{i-1}/" if i > 1
@@ -29,7 +29,7 @@ module Paginate
 
       @items << Nanoc::Item.new(
         "= render 'pagination_page', :item_id => #{i}",
-        { :title => title, :prev_link => prev_link, :next_link => next_link },
+        { :title => title, :prev_link => prev_link, :next_link => next_link, :kind => 'post_index', :archive_index => i+1, :archive_total => article_groups.length},
         url
       )
     end

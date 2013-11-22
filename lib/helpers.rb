@@ -28,7 +28,7 @@ end
 def pretty_time(time)
   #puts time.inspect
   time = Time.parse(time) if not time.is_a?(Time) and not time.nil?
-  time.strftime("%d %B %Y") unless time.nil?
+  time.strftime("%d %b %Y") unless time.nil?
 end
 
 def featured_count

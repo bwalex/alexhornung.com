@@ -1,0 +1,10 @@
+%ul#scrollspy
+  %li.active
+    %a{ :href => "#"} Top
+
+:javascript
+  require(["scrollspy"], function() {
+    $("#scrollspy").scrollspy("article", {
+      "minItems" : 1
+    });
+  });

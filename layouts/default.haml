@@ -4,84 +4,82 @@
     %meta(charset="utf-8")
     %title
       = @item[:title].nil? ? "Alex Hornung" : @item[:title]
-    -#%link(href="/assets/styles/1140.css" rel="stylesheet" type="text/css")
+    %link(href="/assets/styles/normalize.css" rel="stylesheet" type="text/css")
+    %link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css')
+    %link(href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,400italic,300italic' rel='stylesheet' type='text/css')
+    %link(href='http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700,300' rel='stylesheet' type='text/css')
+
+    %link(href="/assets/icons/foundation-icons/foundation-icons.css" rel="stylesheet" type="text/css")
     %link(href="/assets/styles/style.css" rel="stylesheet" type="text/css")
-    -#%link(href="/assets/styles/pyg_github.css" rel="stylesheet" type="text/css")
-    -#%script{ :src => "/assets/js/require.js" }
-    -#:javascript
+    %script{ :src => "/assets/js/vendor/require.js" }
+    :javascript
       require.config({
         baseUrl: "/assets/js",
         paths: {
-          "jquery"     : "jquery-1.7.2.min"
+          "jquery"     : "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min"
         }});
   %body
-    #header.container
+    %header
       .row
-        #logo.twelvecol.last
-          %h1.logo
-            Alex Hornung
-      #navbar.row
-        .ninecol
-          %ul#navigation-menu.menu
-            - for item in @config[:menu]
-              %li
-                %a{ :href => item[:url] }
-                  = item[:text]
-        #social-nav.threecol.last
-          - if @config[:github]
-            %a{ :target => "_blank", :href => "https://github.com/" + @config[:github][:profile] }
-              %img.icon-github{ :src => "/assets/icons/empty.gif", :alt => "GitHub" }
-          - if @config[:linkedin]
-            %a{ :target => "_blank", :href => "https://www.linkedin.com/in/" + @config[:linkedin][:profile] }
-              %img.icon-linkedin{ :src => "/assets/icons/empty.gif", :alt => "LinkedIn" }
-          - if @config[:twitter]
-            %a{ :target => "_blank", :href => "https://www.twitter.com/" + @config[:twitter][:profile] }
-              %img.icon-twitter{ :src => "/assets/icons/empty.gif", :alt => "Twitter" }
-          - if @config[:identica]
-            %a{ :target => "_blank", :href => "https://identi.ca/" + @config[:identica][:profile] }
-              %img.icon-identica{ :src => "/assets/icons/empty.gif", :alt => "identi.ca" }
-          - if @config[:gplus]
-            %a{ :target => "_blank", :href => "https://plus.google.com/" + @config[:gplus][:profile] }
-              %img.icon-gplus{ :src => "/assets/icons/empty.gif", :alt => "Google+" }
-          %a{ :target => "_blank", :href => "/atom.xml" }
-            %img.icon-rss{ :src => "/assets/icons/empty.gif", :alt => "Atom Feed" }
+        .large-3.columns
+          %a#logo{ :href => "/" }<
+            Alex
+            %b>< Hornung
+        .large-9.columns
+          %nav#top-nav
+            %ul.inline-list
+              - for item in @config[:menu]
+                %li
+                  %a{ :href => item[:url] }
+                    = item[:text]
+              - if @config[:github]
+                %li.social
+                  %a{ :target => "_blank", :href => "https://github.com/" + @config[:github][:profile] }
+                    %i.fi-social-github
+              - if @config[:linkedin]
+                %li.social
+                  %a{ :target => "_blank", :href => "https://www.linkedin.com/in/" + @config[:linkedin][:profile] }
+                    %i.fi-social-linkedin
+              - if @config[:twitter]
+                %li.social
+                  %a{ :target => "_blank", :href => "https://www.twitter.com/" + @config[:twitter][:profile] }
+                    %i.fi-social-twitter
+              - if @config[:gplus]
+                %li.social
+                  %a{ :target => "_blank", :href => "https://plus.google.com/" + @config[:gplus][:profile] }
+                    %i.fi-social-google-plus
+              %li.social
+                %a{ :target => "_blank", :href => "/atom.xml" }
+                  %i.fi-rss
 
-    #content.container
+    %section#content
       .row
-        .ninecol
+        .large-9.columns
           #main
             - unless @item[:title].nil?
               %h1
                 = @item[:title]
             - if @item[:kind] == "article"
               = render "partials/post-info"
-            .post-body
+            %article
               = yield
             - if @item[:comments]
               = render "partials/comments"
 
-        .threecol.last
-          #sidebar
-            %h3 About
-            #bio
+        .large-3.columns
+          %aside#sidebar{ :class => (%w(article post_index).include?(@item[:kind])) ? "nofollow" : "follow" }
+            -#%h3 About
+            -#bio
               = render "partials/bio"
-            %h3 Tags
-            #tag-cloud
-              = render "partials/tagcloud"
+            - if %w(article post_index).include?(@item[:kind])
+              %h3 Tags
+              #tag-cloud
+                = render "partials/tagcloud"
+            - else
+              = render "partials/scrollspy"
 
-    .container
-      #footer.row
-        .twelvecol.last
-          = "Copyright (c) 2010-#{Time.now.year}, Alex Hornung"
-
-    :javascript
-      var pkBaseURL = (("https:" == document.location.protocol) ? "https://www.alexhornung.com/stats/" : "http://www.alexhornung.com/stats/");
-      document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-    :javascript
-      try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-      } catch( err ) {}
-    %noscript
-      <p><img src="http://www.alexhornung.com/stats/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+    %footer
+      .row
+        .large-12.columns
+          %p.copyright
+            = "Copyright (c) 2010-#{Time.now.year}, Alex Hornung"

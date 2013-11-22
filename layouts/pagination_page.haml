@@ -1,35 +1,43 @@
 :ruby
   pages = sorted_articles.slice(@item_id*@config[:page_size], @config[:page_size])
 
--#%section#posts
-  %ul
-    - pages.each do |article|
-      %li
-        %h2
-          = link_to article[:title], article
-        .post
-          = render "partials/post-info", :item => article
-          = snippet(article.compiled_content, 140) + link_to("Read more…", article)
-
 %section#posts
   %ul
     - pages.each do |article|
       %li
-        %time.posted
-          = pretty_time article[:created_at]
         %span.post-title
           = link_to article[:title], article
         - for tag in article[:tags]
           %span.post-categories
             = link_for_tag tag, "/tag/"
+        %time.posted
+          = pretty_time article[:created_at]
 
 .pagination
-  - if @item[:prev_link]
-    %span.prev
-      %a{ :href => @item[:prev_link] }
-        Newer Entries
+  - if @item[:archive_total] > 1
+    %ul.pagination
+      %li{ :class => (@item[:prev_link] ? "arrow" : "arrow unavailable") }
+        %a{ :href => @item[:prev_link] }
+          &laquo;
+      - if (@item[:archive_total] > 6)
+        - (1..4).each do |index|
+          %li{ :class => (@item[:archive_index] == index) ? "current" : "" }
+            %a{ :href => (index == 1) ? "/" : "/archive/#{index-1}/"}
+              = index
+        %li.unavailable
+          %a{ :href => "" }
+            &hellip;
+        - (@item[:archive_total]-1..@item[:archive_total]).each do |index|
+          %li{ :class => (@item[:archive_index] == index) ? "current" : "" }
+            %a{ :href => "/archive/#{index-1}/"}
+              = index
 
-  - if @item[:next_link]
-    %span.next
-      %a{ :href => @item[:next_link] }
-        Older Entries
+      - else
+        - (1..@item[:archive_total]).each do |index|
+          %li{ :class => (@item[:archive_index] == index) ? "current" : "" }
+            %a{ :href => (index == 1) ? "/" : "/archive/#{index-1}/"}
+              = index
+      %li{ :class => (@item[:next_link] ? "arrow" : "arrow unavailable") }
+        %a{ :href => @item[:next_link] }
+          &raquo;
+
