@@ -10,6 +10,9 @@
 
   fileExclusionRegExp: /(^\.|~$|^build.js$)/,
 
+  stubModules: [
+    'jade'
+  ],
   paths: {
     /* modules from CDN: */
     'jquery' : "empty:",
@@ -23,8 +26,7 @@
     {
       name: "modules/test",
       exclude: [
-        "jade-full",
-        "jade"
+        'jade'
       ]
     },
   ]
