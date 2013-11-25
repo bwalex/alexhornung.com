@@ -1,10 +1,10 @@
 ({
   appDir: "./",
   baseUrl: "./",
-  dir: "../../../output/assets/js",
+  dir: "../output/assets/js",
   skipDirOptimize: false,
 
-  optimize: "none",//"uglify2",
+  optimize: "uglify2",
   preserveLicenseComments: false,
   generateSourceMaps: true,
 
@@ -15,13 +15,21 @@
   ],
   paths: {
     /* modules from CDN: */
-    'jquery' : "empty:",
-    'templates/test.jade' : "../templates/test.jade"
+    'jquery'     : "empty:",
+    'underscore' : "empty:",
+    'lodash'     : "empty:",
+    'recaptcha'  : "empty:"
   },
 
   modules: [
     {
       name: "modules/scrollspy"
+    },
+    {
+      name: "modules/comments",
+      exclude: [
+        'jade'
+      ]
     },
     {
       name: "modules/test",

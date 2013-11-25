@@ -111,3 +111,11 @@ menu:
 
   - text:       "code"
     url:        "/code"
+
+recaptcha:
+  public_key:   "6LfjyeoSAAAAAHWCi-avoBC3m09Nt2am-mhUmXHf"
+  theme:        "clean"
+
+comments:
+  post_url:      "http://127.0.0.1:9292/api/comments"
+  site:          "alexhornung.com"

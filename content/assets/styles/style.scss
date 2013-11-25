@@ -31,6 +31,7 @@ $code-font-weight: normal;
 @import "foundation/components/labels";
 @import "foundation/components/tables";
 @import "foundation/components/inline-lists";
+@import "foundation/components/alert-boxes";
 
 /*
  * Other variables.
@@ -188,6 +189,18 @@ aside {
     }
     ul {
       display: block;
+    }
+  }
+}
+
+#comments {
+  #comment-form {
+    textarea {
+      height: 10.25em;
+    }
+
+    #captcha {
+      margin-bottom: 1em;
     }
   }
 }
