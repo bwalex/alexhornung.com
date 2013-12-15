@@ -1,0 +1,11 @@
+h1 Comments
+ol#comment-list
+  each comment in comments
+    li.comment
+      header
+        span.name
+          = comment.name
+        time.timeago(datetime=comment.created_at)
+          = comment.created_at
+      article
+        != comment.comment

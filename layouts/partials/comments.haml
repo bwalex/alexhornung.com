@@ -1,87 +1,18 @@
 :javascript
-  require(["jquery", "modules/comments", "recaptcha"], function($, Comments) {
-    Recaptcha.create("#{@config[:recaptcha][:public_key]}", "captcha", {
-      theme: "#{@config[:recaptcha][:theme]}"
-    });
-
-    comments = new Comments({
-      url    : "#{@config[:comments][:post_url]}",
-      domain : "#{@config[:comments][:site]}"
-    });
-
-    $("#comment-submit").click(function() {
-      $("#comment-submit").attr("disabled", "disabled").addClass("disabled");
-      $("#comment-form").find("input.error").removeClass("error");
-      $("#comment-form").find("textarea.error").removeClass("error");
-      $("#comment-form").find("small.error").remove();
-      $("#captcha").find("input[type=text]").removeClass("error");
-      $("#captcha").find("small.error").remove();
-      $("#comment-form").find(".alert-box").remove();
-
-      $.ajax({
-        type: "POST",
-        url: "#{@config[:comments][:post_url]}",
-        headers: {
-          "Accept" : "application/vnd.comments-v1+json"
-        },
-        contentType: "application/json",
-        processData: false,
-        dataType: "json",
-        data: JSON.stringify({
-          "captcha_challenge"  : Recaptcha.get_challenge(),
-          "captcha_response"   : Recaptcha.get_response(),
-          "site_domain"        : "#{@config[:comments][:site]}",
-          "article_name"       : "#{@item[:title]}",
-          "article_identifier" : "#{@item[:hash]}",
-          "email"              : $("#comment-email").val(),
-          "name"               : $("#comment-name").val(),
-          "comment"            : $("#comment-comment").val()
-        })
-      }).done(function(data, textStatus, jqXHR) {
-        var resp = data;
-        $(document.createElement("div")).addClass("alert-box success radius")
-          .html("Your comment has been posted successfully.")
-          .insertAfter("#comment-submit");
-        $("#comment-submit").removeAttr("disabled").removeClass("disabled");
-        $("#comment-form").find("input[type=text]").val("");
-        $("#comment-form").find("textarea").val("");
-        Recaptcha.reload();
-      }).fail(function(jqXHR, textStatus, errorThrown) {
-        var resp = jqXHR.responseJSON;
-        if (typeof(resp) === "object" && resp.error == "captcha") {
-          $("#captcha").find("input[type=text]").addClass("error");
-          $(document.createElement("small")).addClass("error")
-            .html("Incorrect captcha text. Please try again.")
-            .insertAfter("#captcha input[type=text]");
-        } else if (typeof(resp) === "object" && resp.error == "comment") {
-          $.each(resp.error_code, function(key, val) {
-            $("#comment-"+key).addClass("error");
-            $(document.createElement("small")).addClass("error")
-              .html(""+val[0])
-              .insertAfter("#comment-"+key);
-          });
-        } else {
-          $(document.createElement("div")).addClass("alert-box alert radius")
-            .html("Unknown error: " + textStatus + " " + jqXHR.statusText + " - " + jqXHR.status)
-            .insertAfter("#comment-submit");
-        }
-        $("#comment-submit").removeAttr("disabled").removeClass("disabled");
-        Recaptcha.reload();
-      });
+  require(["jquery", "modules/comments"], function($) {
+    $("#comments").comments({
+      url       : "#{@config[:comments][:post_url]}",
+      domain    : "#{@config[:comments][:site]}",
+      article   : {
+        name       : "#{@item[:title]}",
+        url        : "#{absolute_url @item}",
+        identifier : "#{@item[:hash]}"
+      },
+      recaptcha : {
+        public_key : "#{@config[:recaptcha][:public_key]}",
+        theme      : "#{@config[:recaptcha][:theme]}"
+      }
     });
   });
 
 %section#comments
-  #comment-form
-    %fieldset
-      %legend Post a comment
-      %label{ :for => "name" } Name
-      %input#comment-name{ :type => "text", :name => "name" }
-      %label{ :for => "email" } Email (not shown)
-      %input#comment-email{ :type => "text", :name => "email" }
-      %label{ :for => "comment" } Comment
-      %textarea#comment-comment{ :name => "comment" }
-      #captcha
-      %input#comment-submit.button{ :type => "submit", :value => "Post comment" }
-
-  #comment-contents

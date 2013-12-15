@@ -1,0 +1,11 @@
+#comment-form
+  fieldset
+    legend Post a comment
+    label(for='comment-name') Name
+    input#comment-name(type='text', name='name')
+    label(for='comment-email') Email (not shown)
+    input#comment-email(type='text', name='email')
+    label(for='comment-comment') Comment
+    textarea#comment-comment(name='comment')
+    #captcha
+    input#comment-submit.button(type='submit', value='Post a comment')

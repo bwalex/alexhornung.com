@@ -84,13 +84,13 @@ nav#top-nav {
   }
 }
 
-header {
+header#top-header {
   border-bottom: 1px solid $secondary-color;
   margin-bottom: 1.2em;
   padding-bottom: $header-top-margin;
 }
 
-footer {
+footer#footer {
   margin-top: 1em;
   padding-top: 1em;
   border-top: 1px solid $secondary-color;
@@ -203,4 +203,28 @@ aside {
       margin-bottom: 1em;
     }
   }
+}
+
+#comment-list {
+  li.comment {
+    list-style: none;
+    border-top: 1px solid $secondary-color;
+    padding-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 90%;
+
+    header {
+      margin-bottom: 0.5em;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    time {
+      float: right;
+      color: #999;
+    }
+  }
+
 }

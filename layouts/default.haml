@@ -20,7 +20,7 @@
           "recaptcha"  : "//www.google.com/recaptcha/api/js/recaptcha_ajax"
         }});
   %body
-    %header
+    %header#top-header
       .row
         .large-3.columns
           %a#logo{ :href => "/" }<
@@ -79,7 +79,7 @@
             - else
               = render "partials/scrollspy"
 
-    %footer
+    %footer#footer
       .row
         .large-12.columns
           %p.copyright
