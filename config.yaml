@@ -109,9 +109,6 @@ menu:
   - text:       "DragonFly"
     url:        "/dragonfly"
 
-  - text:       "code"
-    url:        "/code"
-
 recaptcha:
   public_key:   "6LfjyeoSAAAAAHWCi-avoBC3m09Nt2am-mhUmXHf"
   theme:        "clean"
