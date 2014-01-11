@@ -8,6 +8,7 @@
   preserveLicenseComments: false,
   generateSourceMaps: true,
 
+  keepAmdefine: true,
   fileExclusionRegExp: /(^\.|~$|^build.js$)/,
 
   stubModules: [
@@ -27,15 +28,13 @@
     },
     {
       name: "modules/comments",
-      exclude: [
-        'jade'
-      ]
+      exclude: ['jade-full'],
+      stubModules: ['jade']
     },
     {
       name: "modules/test",
-      exclude: [
-        'jade'
-      ]
+      exclude: ['jade-full'],
+      stubModules: ['jade']
     },
   ]
 })
