@@ -117,5 +117,5 @@ recaptcha:
   theme:        "clean"
 
 comments:
-  post_url:      "://www.alexhornung.com/comments/api/comments"
+  post_url:      "//www.alexhornung.com/comments/api/comments"
   site:          "alexhornung.com"
