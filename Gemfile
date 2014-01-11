@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "capistrano", "~> 3.0.1"
+gem "capistrano", "~> 2.12"
 gem "rake", "~> 10.1.0"
 
 gem "redcarpet", "~> 3.0.0"
