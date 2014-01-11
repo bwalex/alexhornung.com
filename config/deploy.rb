@@ -28,13 +28,13 @@ namespace :deploy do
     desc "#{t} task is a no-op with nanoc"
     task t, :roles => :app do ; end
   end
- 
+
 
   desc 'Run nanoc to update site before uploading'
   task :update_nanoc do
     puts "Compile site"
     %x(rm -rf output)
-    %x(bundle exec nanoc co)
+    %x(make compile)
   end
 
 

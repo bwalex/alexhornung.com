@@ -117,5 +117,5 @@ recaptcha:
   theme:        "clean"
 
 comments:
-  post_url:      "http://127.0.0.1:9292/api/comments"
+  post_url:      "://www.alexhornung.com/comments/api/comments"
   site:          "alexhornung.com"
