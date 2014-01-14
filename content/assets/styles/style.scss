@@ -23,6 +23,7 @@ $h6-font-size: 1em;
 $code-color: inherit;
 $code-font-family: "Source Code pro";
 $code-font-weight: normal;
+$list-side-margin: em-calc(24);
 
 @import "foundation/components/global";
 @import "foundation/components/grid";
@@ -228,5 +229,30 @@ aside {
       color: #999;
     }
   }
+}
 
+
+.code-facts {
+  h3 {
+    font-size: em-calc(22);
+  }
+
+  .key {
+    font-weight: bold;
+    font-size: 95%;
+  }
+
+  .row {
+    margin-bottom: 0.8em;
+  }
+
+  margin: 1em;
+  border-bottom: 1px solid $secondary-color;
+  border: 1px solid $secondary-color;
+  border-radius: 8px;
+  padding: 1em;
+
+  &:hover {
+    background-color: #eee;
+  }
 }

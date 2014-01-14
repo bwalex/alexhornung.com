@@ -7,6 +7,10 @@
         factory(jQuery);
     }
 }(function ($) {
+    $.fn.findClosest = function(selector) {
+        return this.is(selector) ? this.filter(selector) : this.find(selector);
+    };
+
     $.fn.scrollspy = function (article, options) {
         var $this = $(this),
             lastId,
@@ -22,7 +26,7 @@
         var scrollItems = $(article).find("h2,h3").map(function() { return $(this); });
         $(article).find("h2").map(function() {
             var id = $(this).attr("id"),
-                h3s = $(this).nextUntil("h2", "h3");
+                h3s = $(this).nextUntil("h2").findClosest("h3");
 
             if (typeof(id) === "undefined") {
                 id = "scrollspy_auto_" + auto_id++;

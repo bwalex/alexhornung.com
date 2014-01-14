@@ -103,11 +103,15 @@ linkedin:
   profile:      "alexhornung"
 
 menu:
-  - text:       "About"
-    url:        "/about"
+  - text:       "Code"
+    url:        "/code"
 
   - text:       "DragonFly"
     url:        "/dragonfly"
+
+  - text:       "About"
+    url:        "/about"
+
 
 recaptcha:
   public_key:   "6LfjyeoSAAAAAHWCi-avoBC3m09Nt2am-mhUmXHf"
