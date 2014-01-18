@@ -16,6 +16,8 @@ BPasswd2 is available as a Firefox addon, a Chrome extension and a simple websit
 
 The website version is pure HTML + JavaScript, so it runs on your browser only and never submits anything to any server. You can even simply download the HTML and JavaScript files and run them locally.
 
+If you are looking for the web version, you can find an instance [here](https://u.alexhornung.com/bpasswd/).
+
 The derived password is generated from an input master password and a "salt" (usually the site's domain without the TLD). All three versions of BPasswd have a number of other settings that affect the generated password: "cost", "generation/mapping method" and "maximum password length". The first is described under the "How it works" section. The last one should be obvious - by default BPasswd generates 32-character (or 30-character if z85 is used) passwords, but some websites have password length limitations. This setting simply trims the password to whatever number of characters you tell it. The "generation/mapping method" option defines how the raw output of the bcrypt function is mapped back to ASCII characters:
 
  - base64: simple base64 encoding of the derived key, resulting in a password of length 32, using the characters: a-z A-Z 0-9 + /
