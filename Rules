@@ -109,7 +109,7 @@ compile '*' do
 
     filter :haml, :ugly => true  if item[:extension] == 'haml'
 
-    layout item[:layout] || 'default'
+    layout item[:layout] || 'default' unless item[:extension] == 'txt'
 
     # Inject <script> and <link> tags, as appropriate
     filter :js_inject  if item[:js]

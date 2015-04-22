@@ -1,2 +1,5 @@
+---
+layout: null
+---
 User-agent: *
 Sitemap: http://alexhornung.com/sitemap.xml
