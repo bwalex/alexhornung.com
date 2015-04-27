@@ -16,7 +16,10 @@ might see me giving talks on DragonFly BSD, such as on the photo to the right.
 
 You'll find a number of my own projects on here or on my [github page][github].
 
-My PGP key is [0x89EBF03A272BBD8A](http://pgp.mit.edu:11371/pks/lookup?op=get&search=0x89EBF03A272BBD8A).
+If you want to send me an email, you can use <noscript><b>my first name @ this domain name</b> or </noscript>
+<span id="my_email" onclick="document.getElementById('my_email').innerHTML = 'xela'.split('').reverse().join('') + '@' + window.location.host.split('.').slice(1).join('.');"><i>click here if you have JavaScript enabled</i></span>.
+
+My PGP key is [0x89EBF03A272BBD8A](https://pgp.mit.edu/pks/lookup?op=get&search=0x89EBF03A272BBD8A).
 My key fingerprint is:
 
 <pre>
